@@ -41,7 +41,8 @@ var SFreq = class extends ExtensionCommon.ExtensionAPI {
 
 function paint(win) {
   win.SFreq = {};
-  Services.scriptloader.loadSubScript(extension.getURL("customcol.js"), win.SFreq);
+  Services.scriptloader.loadSubScriptWithOptions(extension.getURL("customcol.js"),
+    { target: win.SFreq, charset: "UTF-8", allowUnsafeURL: true });
   win.SFreq.SFreqHdrView.init(win);
 }
 
